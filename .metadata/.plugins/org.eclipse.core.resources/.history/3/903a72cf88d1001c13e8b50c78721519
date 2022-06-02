@@ -1,0 +1,57 @@
+package d0511;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Butter {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		final int EOF = -1;
+		try {
+			FileInputStream fis = new FileInputStream("d0511/test3.txt");
+			BufferedInputStream bis= new BufferedInputStream(fis);
+			
+			FileOutputStream fos = new FileOutputStream("d0511/test3_copy.txt");
+			BufferedOutputStream bos= new BufferedOutputStream(fos);
+			int buf = 0;
+//			while ((buf=bis.read()) != EOF)
+//			while ((buf=fis.read()) != EOF) {
+//				System.out.print((char)buf);
+//				bos.write(buf);
+//			}
+			
+			bos.close();
+			fos.close();
+			
+			bis.close();
+			fis.close();
+			//
+			FileReader fr = new FileReader("d0511/test4_utf8.txt");
+			BufferedReader br = new BufferedReader(fr);
+			
+			while( (buf=br.read()) != EOF)
+				System.out.print((char)buf);
+			String str;
+//			while( (str=br.readLine()) != null)
+//				System.out.println(str);
+			br.close();
+			fr.close();
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}catch(IOException e) {
+			
+		}
+		
+		
+	}
+
+}

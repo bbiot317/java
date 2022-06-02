@@ -1,0 +1,43 @@
+package movie;
+
+import java.util.Scanner;
+
+class Admin extends Abs {
+
+	static void run() {
+		System.out.println("관리자 모드");
+		Scanner sc= new Scanner(System.in);
+		boolean run=true;
+		while(run) {
+			System.out.println("1. 등록\n2. 목록\n3. 삭제\n4. 종료\n5. 메인으로");
+			System.out.print("----------입력:");
+			switch(sc.nextInt()){
+				case 1: Admin.add();
+					break;
+				case 2: Admin.view();
+					break;
+				case 3: Admin.del();
+					break;
+				case 4: run=false;
+					System.out.println("종료");
+					MainMenu.run=false;
+					break;
+				case 5: run=false;
+					break;
+			}
+		}
+	}
+	
+	static void add() {
+		
+	}
+	
+	static void view() {
+		
+	}
+	static void del() {
+		
+	}
+	
+	
+}
