@@ -7,7 +7,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 class Admin extends Abs {
@@ -64,13 +63,10 @@ class Admin extends Abs {
 		try {
 			BufferedReader br=new BufferedReader(new FileReader("movie/movies.txt"));
 			String ss;
-			
 			while( (ss=br.readLine()) != null) {
 				String[] s = ss.split(",");
-				ar.add(ss);
 				System.out.println("["+s[0]+"]: "+s[1]+"("+s[2]+")");
 			}
-			br.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -81,7 +77,6 @@ class Admin extends Abs {
 		
 	}
 	static void del() {
-		view();
 		
 	}
 	

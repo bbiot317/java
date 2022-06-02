@@ -1,6 +1,5 @@
 package movie;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 class MainMenu extends Abs{
@@ -41,7 +40,6 @@ class MainMenu extends Abs{
 
 abstract class Abs
 {
-	static ArrayList<String> ar=new ArrayList<>();
 	static boolean run=true;
 	static void run() {};
 }
