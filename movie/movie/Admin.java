@@ -14,7 +14,7 @@ class Admin extends Abs {
 
 	static void run() {
 		System.out.println("<관리자 모드>");
-		Scanner sc= new Scanner(System.in);
+		
 		while(run) {
 			System.out.println("1. 등록\n2. 목록\n3. 삭제\n4. 종료\n5. 메인으로");
 			System.out.print("----------입력:");
@@ -46,12 +46,11 @@ class Admin extends Abs {
 			}
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(mov,true));
-			Scanner sc= new Scanner(System.in);
 			System.out.print("제목:");
 			bw.write(System.currentTimeMillis()+","+sc.next());
 			System.out.print("장르:");
 			bw.write(","+sc.next()+"\n");
-			bw.flush();
+			bw.close();
 			System.out.println(">>완료");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -82,6 +81,24 @@ class Admin extends Abs {
 	}
 	static void del() {
 		view();
+		System.out.print("삭제할 영화:");
+		String s=sc.next();
+		BufferedWriter bw;
+		try {
+			bw = new BufferedWriter(new FileWriter("movie/movies.txt"));
+			for(String i:ar) {
+				String[] t = i.split(",");
+				if(t[0].equals(s)) 
+					continue;
+				bw.write(i+"\n");
+				bw.flush();
+			}
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		
 		
 	}
 	
